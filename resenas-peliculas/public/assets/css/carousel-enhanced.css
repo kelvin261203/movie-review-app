@@ -1,0 +1,286 @@
+/* ========================================
+   ESTILOS GENERALES
+   ======================================== */
+
+/* Fondo negro absoluto para todo el sitio */
+body {
+  background-color: #000000;
+  color: white;
+}
+
+/* Fondo negro absoluto */
+.true-black-bg {
+  background-color: #000 !important;
+}
+
+/* Asegura que el texto blanco esté presente incluso si Bootstrap lo sobrescribe */
+.true-black-bg * {
+  color: white !important;
+}
+
+/* ========================================
+   SECCIÓN HERO
+   ======================================== */
+
+/* Imagen de fondo tipo slide */
+.hero-slide {
+  position: relative;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Gradiente de desvanecimiento inferior */
+.hero-gradient-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
+  z-index: 1;
+}
+
+/* Contenido encima del fondo y overlay */
+.hero-content {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  z-index: 2;
+  max-width: 700px;
+  color: white;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero-content h3 {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+/* ========================================
+   NAVEGACIÓN
+   ======================================== */
+
+/* Fondo negro absoluto con texto blanco */
+.nav-fade {
+  background: transparent !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Forzar que los enlaces del nav sean blancos */
+.navbar .nav-link,
+.navbar .fa {
+  color: white !important;
+}
+
+/* Fade superior del carousel */
+.carousel-fade-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 150px; /* puedes ajustar la altura */
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+  z-index: 5;
+  pointer-events: none; /* para no bloquear interacción */
+}
+
+/* ========================================
+   SECCIONES CON FONDO NEGRO
+   ======================================== */
+
+#templatemo_nav_top {
+  background-color: #000000c4 !important;
+  color: white !important;
+  position: relative;
+  z-index: 10;   
+}
+
+#negro {
+  background-color: #000000c4 !important;
+  color: white !important;
+  position: relative;
+  z-index: 10;  
+}
+
+#tempaltemo_footer {
+  background-color: #000000c4 !important;
+  color: white !important;
+  position: relative;
+  z-index: 10;  
+}
+
+#footerblack {
+  background-color: #000000c4 !important;
+  color: white !important;
+  position: relative;
+  z-index: 10; 
+}
+
+/* ========================================
+   IMÁGENES DE CATEGORÍAS
+   ======================================== */
+
+.category-img {
+  width: 400px;           /* tamaño fijo */
+  height: 330px;
+  object-fit: cover;      /* recorta para que encaje en el círculo */
+  border: none;           /* elimina borde blanco */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* opcional: sombra elegante */
+}
+
+/* Efectos hover para imágenes de categoría */
+img.category-img.rounded-circle.img-fluid {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+img.category-img.rounded-circle.img-fluid:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   TARJETAS Y REVIEWS
+   ======================================== */
+
+.card {
+  background-color: #000;
+}
+
+/* Uniformiza todas las imágenes de review */
+.review-img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  border: none;
+  border-radius: 0;
+}
+
+/* Efectos hover para imágenes de review */
+img.card-img-top.review-img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+img.card-img-top.review-img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Estilo del cuerpo de la tarjeta */
+.review-body {
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro con transparencia */
+  padding: 1.2rem;
+  border-radius: 0 0 10px 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.review-body:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Estilo del título */
+.review-body .h2 {
+  color: #fff;
+}
+
+/* Estilo del texto */
+.review-body .card-text,
+.review-body p,
+.review-body .text-muted {
+  color: #ffffff !important;
+}
+
+/* Estilo del corazón */
+.corazon {
+  background-color: rgb(0, 0, 0) !important; /* fondo negro con transparencia */
+  color: rgb(255, 255, 255) !important;
+  transition: background-color 0.3s ease;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Enlace oscuro forzado */
+.corazon .text-dark {
+  color: #ffffff !important;
+}
+
+.corazon p,
+.corazon .card-text,
+.corazon .text-muted {
+  color: #ffffff !important;
+}
+
+/* ========================================
+   IMÁGENES CON RATIOS ESPECÍFICOS
+   ======================================== */
+
+.image-5x7 {
+  aspect-ratio: 5 / 7;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 12px; /* Sin bordes redondeados */
+}
+
+.image-5x4 {
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 0; /* Sin bordes redondeados */
+}
+
+/* Efectos hover para imágenes 5x7 */
+img.card-img-top.image-5x7 {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+img.card-img-top.image-5x7:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content h3 {
+    font-size: 1.4rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .hero-content {
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+  }
+}

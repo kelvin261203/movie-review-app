@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ReviewScope</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/imagenes/movies-podcast.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/imagenes/movies-podcast.png">
+
+   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="./assets/css/carousel-enhanced.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
+    <style>
+        body {
+            background-color: #000000;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .container-fluid.bg-light.py-5 {
+            margin-top: 90px;
+            background-color: #000000 !important;
+        }
+
+        .navbar {
+            background-color: #000;
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            color: #ffffff !important;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            transition: color 0.3s;
+            margin-right: 44px;
+        }
+
+        .nav-link:hover {
+            color: rgb(39, 35, 101) !important;
+        }
+
+        /* Reviews Section Styles */
+        .reviews-section {
+            background-color: #000000;
+            padding: 3rem 0;
+        }
+
+        .reviews-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .reviews-header h2 {
+            color: #888;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .more-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .more-link:hover {
+            color: rgb(39, 35, 101);
+        }
+
+        .review-item {
+            background-color: #222;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid rgb(39, 35, 101);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .review-item:hover {
+            transform: translateY(-5px);
+            /* box-shadow: 0 4px 15px rgb(39, 35, 101); */
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .movie-info h3 {
+            margin: 0;
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        .movie-year {
+            color: #888;
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            margin-right: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .username {
+            color: #fff;
+            font-weight: 500;
+            margin-right: 0.75rem;
+        }
+
+        .rating {
+            margin-right: 0.75rem;
+        }
+
+        .star {
+            color: yellow;
+            font-size: 0.9rem;
+        }
+
+        .star.empty {
+            color: #444;
+        }
+
+        .like-badge {
+            background-color: rgb(39, 35, 101);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .review-text {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .review-stats {
+            display: flex;
+            align-items: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .review-stats i {
+            margin-right: 0.5rem;
+            color: #666;
+        }
+
+        .footer {
+            background-color: #000;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer h2 {
+            color: rgb(39, 35, 101);
+            border-bottom: 2px solid #333;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-link-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-link-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-link-list a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link-list a:hover {
+            color: rgb(39, 35, 101);
+        }
+
+        .contact-form {
+            background-color: #2a2a2a;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .form-control {
+            background-color: #333;
+            border: 1px solid #555;
+            color: #fff;
+        }
+
+        .form-control:focus {
+            background-color: #333;
+            border-color: rgb(39, 35, 101);
+            color: #fff;
+            box-shadow: 0 0 0 0.2rem rgb(39, 35, 101);
+        }
+
+        .btn-success {
+            background-color: rgb(39, 35, 101);
+            border-color: rgb(39, 35, 101);
+        }
+
+        .btn-success:hover {
+            background-color:rgb(39, 35, 101);
+            border-color: rgb(39, 35, 101);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-success logo h1 align-self-center" href="indexx.html">ReviewScope</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="indexx.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="shop.html">Peliculas y series</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="contact.html">Comunidad</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="index.html">Mis Reseñas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Content -->
+    <div class="container-fluid bg-light py-5">
+        <div class="col-md-8 m-auto text-center">
+            <h1 class="h1 text-white">Comunidad de Reviews</h1>
+            <p class="text-light">
+                Descubre las mejores reseñas de películas y series hechas por nuestra comunidad.
+            </p>
+        </div>
+    </div>
+
+    <!-- Popular Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="reviews-header">
+                <h2>Reviews Populares Esta Semana</h2>
+                <a href="#" class="more-link">Más</a>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="movie-poster">🎬</div>
+                            <div class="movie-info">
+                                <h3>Superman <span class="movie-year">2025</span></h3>
+                            </div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-avatar">J</div>
+                            <span class="username">justinwuah</span>
+                            <div class="rating">
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                            </div>
+                            <span class="like-badge">♥</span>
+                        </div>
+                        <div class="review-text">
+                            "¡Increíble película! La actuación es fenomenal y los efectos visuales son impresionantes. Definitivamente una de las mejores adaptaciones de Superman que he visto."
+                        </div>
+                        <div class="review-stats">
+                            <i class="fas fa-heart"></i> 40,269 likes
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="movie-poster">🎬</div>
+                            <div class="movie-info">
+                                <h3>Superman <span class="movie-year">2025</span></h3>
+                            </div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-avatar">N</div>
+                            <span class="username">neorapp</span>
+                            <div class="rating">
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star empty"></i>
+                                <i class="fas fa-star star empty"></i>
+                            </div>
+                            <span class="like-badge">♥</span>
+                        </div>
+                        <div class="review-text">
+                            "La película tiene buenos momentos pero siento que le falta algo. Los villanos podrían estar mejor desarrollados."
+                        </div>
+                        <div class="review-stats">
+                            <i class="fas fa-heart"></i> 22,357 likes
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="movie-poster">🎬</div>
+                            <div class="movie-info">
+                                <h3>Dune: Part Two <span class="movie-year">2024</span></h3>
+                            </div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-avatar">A</div>
+                            <span class="username">alexcolemann</span>
+                            <div class="rating">
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                            </div>
+                            <span class="like-badge">♥</span>
+                        </div>
+                        <div class="review-text">
+                            "Denis Villeneuve ha creado una obra maestra visual. La cinematografía es absolutamente impresionante y la banda sonora te transporta a Arrakis."
+                        </div>
+                        <div class="review-stats">
+                            <i class="fas fa-heart"></i> 18,492 likes
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="movie-poster">🎬</div>
+                            <div class="movie-info">
+                                <h3>Spider-Man: Across the Spider-Verse <span class="movie-year">2023</span></h3>
+                            </div>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-avatar">M</div>
+                            <span class="username">moviefan92</span>
+                            <div class="rating">
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                            </div>
+                            <span class="like-badge">♥</span>
+                        </div>
+                        <div class="review-text">
+                            "Una experiencia visual única. Cada frame es una obra de arte. La animación revoluciona lo que se puede hacer en el cine."
+                        </div>
+                        <div class="review-stats">
+                            <i class="fas fa-heart"></i> 35,781 likes
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="contact-form">
+                    <h2 class="text-center mb-4 text-white">Comparte tu Review</h2>
+                    <form method="post" role="form">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label text-white">Nombre</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label text-white">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="movie" class="form-label text-white">Película/Serie</label>
+                            <input type="text" class="form-control" id="movie" name="movie" placeholder="Nombre de la película o serie" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rating" class="form-label text-white">Calificación</label>
+                            <select class="form-control" id="rating" name="rating" required>
+                                <option value="">Selecciona una calificación</option>
+                                <option value="5">⭐⭐⭐⭐⭐</option>
+                                <option value="4">⭐⭐⭐⭐</option>
+                                <option value="3">⭐⭐⭐</option>
+                                <option value="2">⭐⭐</option>
+                                <option value="1">⭐</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="review" class="form-label text-white">Tu Review</label>
+                            <textarea class="form-control" id="review" name="review" placeholder="Escribe tu reseña aquí..." rows="6" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success btn-lg px-4">Publicar Review</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>ReviewScope</h2>
+                    <ul class="footer-link-list">
+                        <li><i class="fas fa-map-marker-alt"></i> Santo Domingo, República Dominicana</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+1809-555-0123">+1 809-555-0123</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@ReviewScope.com">info@ReviewScope.com</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h2>Géneros</h2>
+                    <ul class="footer-link-list">
+                        <li><a href="#">Acción</a></li>
+                        <li><a href="#">Comedia</a></li>
+                        <li><a href="#">Drama</a></li>
+                        <li><a href="#">Ciencia Ficción</a></li>
+                        <li><a href="#">Terror</a></li>
+                        <li><a href="#">Documentales</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h2>Enlaces</h2>
+                    <ul class="footer-link-list">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Películas y Series</a></li>
+                        <li><a href="#">Comunidad</a></li>
+                        <li><a href="#">Mis Reseñas</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-4 pt-4" style="border-top: 1px solid #333;">
+                <div class="col-12 text-center">
+                    <p class="text-light">
+                        © 2025 ReviewScope. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Sistema de manejo de reviews
+        class ReviewManager {
+            constructor() {
+                this.reviews = this.loadReviews();
+                this.init();
+            }
+
+            init() {
+                // Cargar reviews existentes al iniciar
+                this.displayReviews();
+                
+                // Configurar el formulario
+                const form = document.querySelector('form');
+                if (form) {
+                    form.addEventListener('submit', (e) => this.handleSubmit(e));
+                }
+            }
+
+            loadReviews() {
+                try {
+                    const stored = localStorage.getItem('peliculasReviews');
+                    return stored ? JSON.parse(stored) : this.getDefaultReviews();
+                } catch (error) {
+                    console.error('Error cargando reviews:', error);
+                    return this.getDefaultReviews();
+                }
+            }
+
+            getDefaultReviews() {
+                return [
+                    {
+                        id: 1,
+                        name: "justinwuah",
+                        movie: "Superman",
+                        year: "2025",
+                        rating: 5,
+                        review: "¡Increíble película! La actuación es fenomenal y los efectos visuales son impresionantes. Definitivamente una de las mejores adaptaciones de Superman que he visto.",
+                        likes: 40269,
+                        emoji: "🎬",
+                        date: new Date().toISOString()
+                    },
+                    {
+                        id: 2,
+                        name: "neorapp",
+                        movie: "Superman",
+                        year: "2025",
+                        rating: 3,
+                        review: "La película tiene buenos momentos pero siento que le falta algo. Los villanos podrían estar mejor desarrollados.",
+                        likes: 22357,
+                        emoji: "🎬",
+                        date: new Date().toISOString()
+                    },
+                    {
+                        id: 3,
+                        name: "alexcolemann",
+                        movie: "Dune: Part Two",
+                        year: "2024",
+                        rating: 5,
+                        review: "Denis Villeneuve ha creado una obra maestra visual. La cinematografía es absolutamente impresionante y la banda sonora te transporta a Arrakis.",
+                        likes: 18492,
+                        emoji: "🎬",
+                        date: new Date().toISOString()
+                    },
+                    {
+                        id: 4,
+                        name: "moviefan92",
+                        movie: "Spider-Man: Across the Spider-Verse",
+                        year: "2023",
+                        rating: 5,
+                        review: "Una experiencia visual única. Cada frame es una obra de arte. La animación revoluciona lo que se puede hacer en el cine.",
+                        likes: 35781,
+                        emoji: "🎬",
+                        date: new Date().toISOString()
+                    }
+                ];
+            }
+
+            saveReviews() {
+                try {
+                    localStorage.setItem('peliculasReviews', JSON.stringify(this.reviews));
+                } catch (error) {
+                    console.error('Error guardando reviews:', error);
+                    alert('Error al guardar el review. Por favor, intenta de nuevo.');
+                }
+            }
+
+            handleSubmit(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(e.target);
+                const reviewData = {
+                    id: Date.now(),
+                    name: formData.get('name'),
+                    movie: formData.get('movie'),
+                    year: new Date().getFullYear().toString(),
+                    rating: parseInt(formData.get('rating')),
+                    review: formData.get('review'),
+                    likes: Math.floor(Math.random() * 100) + 1, // Likes aleatorios iniciales
+                    emoji: this.getMovieEmoji(formData.get('movie')),
+                    date: new Date().toISOString()
+                };
+
+                // Validar datos
+                if (!this.validateReview(reviewData)) {
+                    return;
+                }
+
+                // Agregar review al inicio del array
+                this.reviews.unshift(reviewData);
+                
+                // Guardar en localStorage
+                this.saveReviews();
+                
+                // Actualizar la vista
+                this.displayReviews();
+                
+                // Limpiar formulario
+                e.target.reset();
+                
+                // Mostrar mensaje de éxito
+                this.showSuccessMessage();
+                
+                // Scroll hacia el nuevo review
+                setTimeout(() => {
+                    document.querySelector('.reviews-section').scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                }, 100);
+            }
+
+            validateReview(reviewData) {
+                if (!reviewData.name || reviewData.name.trim() === '') {
+                    alert('Por favor, ingresa tu nombre');
+                    return false;
+                }
+                
+                if (!reviewData.movie || reviewData.movie.trim() === '') {
+                    alert('Por favor, ingresa el nombre de la película o serie');
+                    return false;
+                }
+                
+                if (!reviewData.rating || reviewData.rating < 1 || reviewData.rating > 5) {
+                    alert('Por favor, selecciona una calificación válida');
+                    return false;
+                }
+                
+                if (!reviewData.review || reviewData.review.trim() === '') {
+                    alert('Por favor, escribe tu reseña');
+                    return false;
+                }
+                
+                return true;
+            }
+
+            getMovieEmoji(movieName) {
+                const movieLower = movieName.toLowerCase();
+                
+                if (movieLower.includes('superman') || movieLower.includes('batman') || movieLower.includes('superhero')) {
+                    return '🎬';
+                } else if (movieLower.includes('spider') || movieLower.includes('araña')) {
+                    return '🎬';
+                } else if (movieLower.includes('star wars') || movieLower.includes('space') || movieLower.includes('galaxy')) {
+                    return '🎬';
+                } else if (movieLower.includes('horror') || movieLower.includes('terror')) {
+                    return '🎬';
+                } else if (movieLower.includes('comedy') || movieLower.includes('comedia')) {
+                    return '🎬';
+                } else if (movieLower.includes('action') || movieLower.includes('acción')) {
+                    return '🎬';
+                } else if (movieLower.includes('romance') || movieLower.includes('amor')) {
+                    return '🎬';
+                } else {
+                    return '🎬';
+                }
+            }
+
+            displayReviews() {
+                const reviewsContainer = document.querySelector('.reviews-section .col-12');
+                if (!reviewsContainer) return;
+
+                reviewsContainer.innerHTML = '';
+
+                this.reviews.forEach(review => {
+                    const reviewElement = this.createReviewElement(review);
+                    reviewsContainer.appendChild(reviewElement);
+                });
+            }
+
+            createReviewElement(review) {
+                const reviewDiv = document.createElement('div');
+                reviewDiv.className = 'review-item';
+                reviewDiv.setAttribute('data-id', review.id);
+
+                const starsHtml = this.generateStars(review.rating);
+                
+                reviewDiv.innerHTML = `
+                    <div class="review-header">
+                        <div class="movie-poster">${review.emoji}</div>
+                        <div class="movie-info">
+                            <h3>${review.movie} <span class="movie-year">${review.year}</span></h3>
+                        </div>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">${review.name.charAt(0).toUpperCase()}</div>
+                        <span class="username">${review.name}</span>
+                        <div class="rating">${starsHtml}</div>
+                        <span class="like-badge">♥</span>
+                    </div>
+                    <div class="review-text">${review.review}</div>
+                    <div class="review-stats">
+                        <i class="fas fa-heart like-btn" data-id="${review.id}" style="cursor: pointer;"></i> 
+                        <span class="like-count">${review.likes.toLocaleString()}</span> likes
+                        <span class="review-date" style="margin-left: 1rem; color: #666;">
+                            ${this.formatDate(review.date)}
+                        </span>
+                    </div>
+                `;
+
+                // Agregar funcionalidad de like
+                const likeBtn = reviewDiv.querySelector('.like-btn');
+                likeBtn.addEventListener('click', () => this.toggleLike(review.id));
+
+                return reviewDiv;
+            }
+
+            generateStars(rating) {
+                let starsHtml = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= rating) {
+                        starsHtml += '<i class="fas fa-star star"></i>';
+                    } else {
+                        starsHtml += '<i class="fas fa-star star empty"></i>';
+                    }
+                }
+                return starsHtml;
+            }
+
+            toggleLike(reviewId) {
+                const review = this.reviews.find(r => r.id === reviewId);
+                if (review) {
+                    review.likes += 1;
+                    this.saveReviews();
+                    
+                    // Actualizar solo el contador de likes
+                    const reviewElement = document.querySelector(`[data-id="${reviewId}"]`);
+                    const likeCount = reviewElement.querySelector('.like-count');
+                    likeCount.textContent = review.likes.toLocaleString();
+                    
+                    // Efecto visual del like
+                    const likeBtn = reviewElement.querySelector('.like-btn');
+                    likeBtn.style.color = '#ff6b35';
+                    likeBtn.style.transform = 'scale(1.2)';
+                    
+                    setTimeout(() => {
+                        likeBtn.style.transform = 'scale(1)';
+                    }, 200);
+                }
+            }
+
+            formatDate(dateString) {
+                const date = new Date(dateString);
+                const now = new Date();
+                const diffInHours = Math.floor((now - date) / (1000 * 60 * 60));
+                
+                if (diffInHours < 1) {
+                    return 'Hace unos minutos';
+                } else if (diffInHours < 24) {
+                    return `Hace ${diffInHours} hora${diffInHours > 1 ? 's' : ''}`;
+                } else if (diffInHours < 168) {
+                    const days = Math.floor(diffInHours / 24);
+                    return `Hace ${days} día${days > 1 ? 's' : ''}`;
+                } else {
+                    return date.toLocaleDateString();
+                }
+            }
+
+            showSuccessMessage() {
+                // Crear mensaje de éxito
+                const successDiv = document.createElement('div');
+                successDiv.className = 'alert alert-success';
+                successDiv.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    z-index: 1000;
+                    background-color: #28a745;
+                    color: white;
+                    padding: 1rem 2rem;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                    animation: slideIn 0.3s ease-out;
+                `;
+                
+                successDiv.innerHTML = `
+                    <strong>¡Review publicado!</strong> Tu reseña se ha agregado exitosamente.
+                    <button type="button" class="btn-close btn-close-white ms-2" onclick="this.parentElement.remove()"></button>
+                `;
+                
+                document.body.appendChild(successDiv);
+                
+                // Auto-remover después de 5 segundos
+                setTimeout(() => {
+                    if (successDiv.parentElement) {
+                        successDiv.remove();
+                    }
+                }, 5000);
+            }
+        }
+
+        // Inicializar el sistema cuando se carga la página
+        document.addEventListener('DOMContentLoaded', () => {
+            new ReviewManager();
+        });
+
+        // Agregar animación CSS para el mensaje de éxito
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

@@ -1,0 +1,644 @@
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+#root {
+  min-height: 100vh;
+  width: 100vw;
+  padding: 2rem 5%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin: 2rem 0;
+  color: var(--primary);
+}
+
+.titulo-peliculas {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 2rem 0;
+}
+
+/* ========================================
+   FORM STYLES
+   ======================================== */
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.formulario h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary);
+  text-align: center;
+  margin: 0;
+}
+
+.fila-horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.fila-horizontal input,
+.fila-horizontal select,
+.fila-horizontal textarea {
+  width: 300px;
+  padding: 0.75rem 1rem;
+  border-radius: 25px;
+  border: 1.5px solid var(--primary);
+  background-color: rgba(12, 1, 1, 0.311);
+  color: white;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group {
+  margin: 20px;
+}
+
+/* General input styles */
+input, select, textarea {
+  width: 300px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  margin: 7px;
+  border-radius: 25px;
+  border: 1.5px solid var(--primary);
+  background-color: rgba(12, 1, 1, 0.311);
+  color: white;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--secondary);
+  background-color: rgba(255, 255, 255, 0.311);
+  color: white;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ========================================
+   BUTTON STYLES
+   ======================================== */
+
+#guardar {
+  background-color: rgb(39, 35, 101);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#guardar:hover {
+  background-color: var(--secondary);
+}
+
+button {
+  background-color: #2c3e50;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 14px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 35px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 10px;
+  margin-left: 100px;
+  box-shadow: 0 4px 5px rgba(70, 73, 75, 0.13);
+}
+
+/* ========================================
+   LIST STYLES
+   ======================================== */
+
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+li {
+  background-color: rgba(255, 255, 255, 0.311);
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+li:hover {
+  transform: translateX(5px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+li > div {
+  display: flex;
+  gap: 1rem;
+}
+
+li button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: var(--primary);
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+li button:hover {
+  color: var(--secondary);
+  background-color: #f7cac9aa;
+}
+
+/* ========================================
+   NAVBAR STYLES
+   ======================================== */
+
+.navbar {
+  border-radius: 55px;
+  background-color: rgb(39, 35, 101) !important;
+  margin-top: 0%;
+  width: 100%;
+}
+
+.navbar-logout-btn {
+  border-radius: 25px;
+}
+
+/* ========================================
+   REVIEW FORM STYLES
+   ======================================== */
+
+.review-form {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px var(--shadow);
+  max-width: 600px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.review-title {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.review-input,
+.review-select,
+.review-textarea {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1.5px solid var(--primary);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  resize: vertical;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.review-input:focus,
+.review-select:focus,
+.review-textarea:focus {
+  outline: none;
+  border-color: var(--secondary);
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.review-button {
+  padding: 0.8rem 1.2rem;
+  font-size: 1.1rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+}
+
+.review-button:hover {
+  background-color: var(--secondary);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ========================================
+   MOVIE DETAILS STYLES
+   ======================================== */
+
+.movie-details-container {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 700px;
+  margin: 2rem auto;
+  box-shadow: 0 6px 20px var(--shadow);
+  color: var(--text);
+}
+
+.back-button {
+  background-color: transparent;
+  border: none;
+  color: var(--primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  box-shadow: none;
+}
+
+.movie-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--primary);
+}
+
+.movie-year {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.no-reviews {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.usuario-logueado {
+  font-size: 1rem;
+  color: #7f8c8d;
+  font-weight: normal;
+}
+
+/* ========================================
+   REVIEW STYLES
+   ======================================== */
+
+.review-card {
+  background-color: rgba(255, 255, 255, 0.12);
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  color: white;
+}
+
+.review-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.form-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.review-input,
+.review-textarea,
+.review-select {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1.5px solid var(--primary);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  resize: vertical;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.review-input:focus,
+.review-textarea:focus,
+.review-select:focus {
+  outline: none;
+  border-color: var(--secondary);
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.submit-button {
+  padding: 0.8rem 1.2rem;
+  font-size: 1.1rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+}
+
+.submit-button:hover {
+  background-color: var(--secondary);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ========================================
+   NAVBAR STYLES
+   ======================================== */
+
+.navbar {
+  background-color: #2c3e50;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.navbar-logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar-logo:hover {
+  color: #3498db;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-user {
+  color: white;
+  font-weight: 500;
+}
+
+.navbar-logout-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.navbar-logout-btn:hover {
+  background-color: #c0392b;
+}
+
+.navbar-auth-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.navbar-link:hover {
+  background-color: #34495e;
+}
+
+/* ========================================
+   LOADING STYLES
+   ======================================== */
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.loading-spinner {
+  font-size: 1.5rem;
+  color: #3498db;
+}
+
+/* ========================================
+   AUTHENTICATION STYLES
+   ======================================== */
+
+.auth-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgb(0, 0, 0);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.auth-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: rgb(39, 35, 101);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form-group label {
+  margin-bottom: 0.5rem;
+  color: #34495e;
+  font-weight: 500;
+}
+
+.auth-form-group input {
+  padding: 0.75rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.auth-form-group input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.auth-submit-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auth-submit-btn:hover {
+  background-color: #2980b9;
+}
+
+.auth-submit-btn:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.auth-error {
+  background-color: #e74c3c;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 1rem;
+  color: #7f8c8d;
+}
+
+.auth-switch a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   SPECIFIC OVERRIDES
+   ======================================== */
+
+label.block.text-sm.font-medium.text-gray-700.mb-2 {
+  margin-left: 17px;
+}
+
+button.w-full.bg-blue-600.hover\:bg-blue-700.disabled\:bg-blue-400.text-white.font-medium.py-3.px-4.rounded-lg.transition-all.duration-200.transform.hover\:scale-105 {
+  align-items: center;
+  display: flex;
+}
+
+p.text-gray-600 {
+  text-align: center;
+}
+
+/* ========================================
+   RESPONSIVE STYLES
+   ======================================== */
+
+@media (max-width: 650px) {
+  form, ul {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  li > div {
+    margin-top: 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .movie-details-container {
+    padding: 1.5rem;
+  }
+
+  .review-input,
+  .review-textarea,
+  .review-select {
+    width: 100%;
+  }
+  
+  .review-form {
+    padding: 1.5rem;
+  }
+
+  .review-input,
+  .review-select,
+  .review-textarea {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+  
+  .navbar-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .auth-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}

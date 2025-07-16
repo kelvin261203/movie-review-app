@@ -1,0 +1,28 @@
+/* index.css */
+:root {
+  --primary: #a3cef1;
+  /* --secondary: #f7cac9; */
+  /* --accent: #ffb347; */
+  --text: #a3cef1;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  min-width: 100vw;
+  min-height: 100vh;
+  /* Comentar o eliminar estas líneas: */
+  /* background-image: url("/1260707.jpg"); */
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}

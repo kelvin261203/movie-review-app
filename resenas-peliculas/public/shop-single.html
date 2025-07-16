@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ReviewScope</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="/imagenes/movies-podcast.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/imagenes/movies-podcast.png">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="./assets/css/carousel-enhanced.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
+    <!-- Slick -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
+    <style>
+        .footer {
+            background-color: #000;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer h2 {
+            color: rgb(39, 35, 101);
+            border-bottom: 2px solid #333;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-link-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-link-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-link-list a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link-list a:hover {
+            color: rgb(39, 35, 101);
+        }
+    </style>
+</head>
+
+<body>
+       <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-black shadow bg-black">
+        <div class="container d-flex justify-content-between align-items-center bg-black">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="indexx.html">
+                ReviewScope
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item text-light">
+                            <a class="nav-link text-light" href="indexx.html">Inicio</a>
+                        </li>
+                        <li class="nav-item text-light">
+                            <a class="nav-link text-light" href="shop.html">Peliculas y Series</a>
+                        </li>
+                        <li class="nav-item text-light">
+                            <a class="nav-link text-light" href="contact.html">Comunidad</a>
+                        </li>
+                        <li class="nav-item text-light">
+                        <a class="nav-link text-white" href="index.html">Mis Reseñas</a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <!-- Modal -->
+    <div class="modal fade bg-black" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- Open Content -->
+    <section class="bg-black">
+        <div class="container pb-5">
+            <div class="row">
+                
+                <!-- col end -->
+
+
+
+               <div class="container-fluid">
+        <div class="row">
+            <!-- COLUMNA IZQUIERDA: Imágenes y Trailer -->
+            <div class="container pb-5">
+            <div class="row">
+                <div class="col-lg-5 mt-5">
+                    <div class="card mb-3">
+                        <!-- <img class="card-img img-fluid image-5x7" src="assets/img/1299427.jpg" alt="Card image cap" id="product-detail"> -->
+                        <iframe 
+                                    img class="card-img img-fluid image-5x4"
+                                    src="https://www.youtube.com/embed/zSWdZVtXT7E?rel=0&showinfo=0&modestbranding=1" 
+                                    title="Trailer de la película"
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen>
+                                </iframe>
+                    </div>
+                    <div class="row">
+                        <!--Start Controls-->
+                        <div class="col-1 align-self-center">
+                            <a href="#multi-item-example" role="button" data-bs-slide="prev">
+                                <i class="text-dark fas fa-chevron-left"></i>
+                                <span class="sr-only">Anterior</span>
+                            </a>
+                        </div>
+                        <!--End Controls-->
+                        <!--Start Carousel Wrapper-->
+                        <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel">
+                            <!--Start Slides-->
+                            <div class="carousel-inner product-links-wap" role="listbox">
+
+                                <!--First slide-->
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid image-5x7" src="assets/img/605950.jpg" alt="Product Image 1">
+                                            </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid image-5x7" src="assets/img/605953.jpg" alt="Product Image 2">
+                                            </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid image-5x7" src="assets/img/596323.png" alt="Product Image 3">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/.First slide-->
+
+                                <!--Second slide-->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid image-5x7" src="assets/img/585664.png" alt="Product Image 4">
+                                            </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid image-5x7" src="assets/img/637488.png" alt="Product Image 5">
+                                            </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid image-5x7" src="assets/img/647019.jpg" alt="Product Image 6">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/.Second slide-->
+
+                                <!--Third slide-->
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid image-5x7" src="assets/img/585641.png" alt="Product Image 7">
+                                            </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid image-5x7" src="assets/img/585646.png" alt="Product Image 8">
+                                            </a>
+                                        </div>
+                                        <div class="col-4">
+                                            <a href="#">
+                                                <img class="card-img img-fluid image-5x7" src="assets/img/637488.png" alt="Product Image 9">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/.Third slide-->
+                            </div>
+                            <!--End Slides-->
+                        </div>
+                        <!--End Carousel Wrapper-->
+                        <!--Start Controls-->
+                        <div class="col-1 align-self-center">
+                            <a href="#multi-item-example" role="button" data-bs-slide="next">
+                                <i class="text-dark fas fa-chevron-right"></i>
+                                <span class="sr-only">Siguiente</span>
+                            </a>
+                        </div>
+                        <!--End Controls-->
+                    </div>
+                </div>
+
+            <!-- COLUMNA DERECHA: Información de la película -->
+            <div class="col-lg-7 mt-5">
+                <div class="card bg-black text-white">
+                    <div class="card-body">
+                        <h1 class="h2" id="movie-title">Interestellar</h1>
+                        <p class="h3 py-2">Disponible en Streaming</p>
+                        
+                        <!-- Rating dinámico -->
+                        <p class="py-2" id="rating-container">
+                            <span class="spinner-border spinner-border-sm text-warning" role="status" id="loading-spinner">
+                                <span class="sr-only">Cargando...</span>
+                            </span>
+                        </p>
+
+                        <!-- Información de distribuidora -->
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <h6>Distribuidora:</h6>
+                            </li>
+                            <li class="list-inline-item">
+                                <p class="text-muted"><strong>Paramount Pictures / Warner Bros.</strong></p>
+                            </li>
+                        </ul>
+
+                        <!-- Descripción -->
+                        <h6>Descripción:</h6>
+                        <p>En un futuro cercano, la humanidad lucha por sobrevivir en una Tierra devastada. Un grupo de astronautas liderado por Cooper viaja a través de un agujero de gusano en busca de un nuevo planeta habitable para la raza humana. Interestellar es una epopeya de ciencia ficción dirigida por Christopher Nolan que explora el amor, el tiempo y el sacrificio.</p>
+
+                        <!-- Idiomas disponibles -->
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <h6>Idiomas disponibles:</h6>
+                            </li>
+                            <li class="list-inline-item">
+                                <p class="text-muted"><strong>Inglés / Español / Subtitulado</strong></p>
+                            </li>
+                        </ul>
+
+                        <!-- Especificaciones -->
+                        <h6>Especificaciones:</h6>
+                        <ul class="list-unstyled pb-3">
+                            <li><strong>Director:</strong> Christopher Nolan</li>
+                            <li><strong>Duración:</strong> 2h 49min</li>
+                            <li><strong>Protagonistas:</strong> Matthew McConaughey, Anne Hathaway, Jessica Chastain</li>
+                            <li><strong>Género:</strong> Ciencia ficción, Drama, Aventura</li>
+                            <li><strong>Año de estreno:</strong> 2014</li>
+                            <li><strong>Banda sonora:</strong> Hans Zimmer</li>
+                            <li><strong>Calificación IMDb:</strong> 8.6/10</li>
+                        </ul>
+
+                        <!-- Formulario de opciones -->
+                        <form action="" method="GET">
+                            <input type="hidden" name="product-title" value="Interstellar">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <ul class="list-inline pb-3">
+                                        <li class="list-inline-item">Formato:
+                                            <input type="hidden" name="product-size" id="product-size" value="HD">
+                                        </li>
+                                        <li class="list-inline-item"><span class="btn btn-success btn-size active" data-size="HD">HD</span></li>
+                                        <li class="list-inline-item"><span class="btn btn-success btn-size" data-size="1080p">1080p</span></li>
+                                        <li class="list-inline-item"><span class="btn btn-success btn-size" data-size="4K">4K</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row pb-3">
+                                <div class="col d-grid">
+                                    <a class="btn btn-success btn-lg" href="https://youtu.be/j6QZUqXwWRw?si=G-aNOXYRUml-LiVf" target="_blank">
+                                    <i class="fab fa-youtube me-2"></i>Ver Ahora
+                                    </a>                                
+                            </div>
+                                <div class="col d-grid">
+                                    <a class="btn btn-success btn-lg" href="index.html" target="_blank">
+                                    <i class=""></i>Agregar a lista
+                                    </a>                                 
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+   <!-- Start Article -->
+<section class="py-5 true-black-bg">
+    <div class="container">
+        <div class="row text-left p-2 pb-3">
+            <h4 class="text-white">Películas Relacionadas</h4>
+        </div>
+
+        <!--Start Carousel Wrapper-->
+        <div id="carousel-related-product" class="row">
+
+            <!-- Película 1 -->
+            <div class="p-2 pb-3 col-md-3">
+                <div class="product-wap card rounded-0 bg-black text-white">
+                    <div class="card rounded-0">
+                        <img class="card-img rounded-0 img-fluid image-5x7" src="assets/img/100448.jpg" alt="The Martian">
+                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="#" class="h5 text-decoration-none text-white">The Martian</a>
+                        <p class="text-muted">Ridley Scott | 2015</p>
+                        <p class="mb-0 text-white">IMDb: 8.0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Película 2 -->
+            <div class="p-2 pb-3 col-md-3">
+                <div class="product-wap card rounded-0 bg-black text-white">
+                    <div class="card rounded-0">
+                        <img class="card-img rounded-0 img-fluid image-5x7" src="assets/img/327263.jpg" alt="Tenet">
+                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                            
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="#" class="h5 text-decoration-none text-white">Tenet</a>
+                        <p class="text-muted">Christopher Nolan | 2020</p>
+                        <p class="mb-0 text-white">IMDb: 7.3</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Película 3 -->
+            <div class="p-2 pb-3 col-md-3">
+                <div class="product-wap card rounded-0 bg-black text-white">
+                    <div class="card rounded-0">
+                        <img class="card-img rounded-0 img-fluid image-5x7" src="assets/img/61801.jpg" alt="Gravity">
+                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="#" class="h5 text-decoration-none text-white">Gravity</a>
+                        <p class="text-muted">Alfonso Cuarón | 2013</p>
+                        <p class="mb-0 text-white">IMDb: 7.7</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Película 4 -->
+            <div class="p-2 pb-3 col-md-3">
+                <div class="product-wap card rounded-0 bg-black text-white">
+                    <div class="card rounded-0">
+                        <img class="card-img rounded-0 img-fluid image-5x7" src="assets/img/352107.jpg" alt="Contact">
+                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                        </div>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="#" class="h5 text-decoration-none text-white">Contact</a>
+                        <p class="text-muted">Robert Zemeckis | 1997</p>
+                        <p class="mb-0 text-white">IMDb: 7.5</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Article -->
+
+<!-- Start Footer -->
+<footer class="bg-dark" id="tempaltemo_footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>ReviewScope</h2>
+                    <ul class="footer-link-list">
+                        <li><i class="fas fa-map-marker-alt"></i> Santo Domingo, República Dominicana</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+1809-555-0123">+1 809-555-0123</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@ReviewScope.com">info@ReviewScope.com</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h2>Géneros</h2>
+                    <ul class="footer-link-list">
+                        <li><a href="#">Acción</a></li>
+                        <li><a href="#">Comedia</a></li>
+                        <li><a href="#">Drama</a></li>
+                        <li><a href="#">Ciencia Ficción</a></li>
+                        <li><a href="#">Terror</a></li>
+                        <li><a href="#">Documentales</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h2>Enlaces</h2>
+                    <ul class="footer-link-list">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Películas y Series</a></li>
+                        <li><a href="#">Comunidad</a></li>
+                        <li><a href="#">Mis Reseñas</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-4 pt-4" style="border-top: 1px solid #333;">
+                <div class="col-12 text-center">
+                    <p class="text-light">
+                        © 2025 ReviewScope. Todos los derechos reservados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+</footer>
+<!-- End Footer -->
+
+
+    <!-- Start Script -->
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/templatemo.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+// Función para obtener rating de TMDB
+async function getMovieRating(movieTitle) {
+    const API_KEY = '5c77b3045ff7489814dd85454ebf1bcd'; // Regístrate en https://www.themoviedb.org/settings/api
+    const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(movieTitle)}`;
+    
+    try {
+        const response = await fetch(searchUrl);
+        const data = await response.json();
+        
+        if (data.results && data.results.length > 0) {
+            const movie = data.results[0];
+            return {
+                rating: movie.vote_average,
+                voteCount: movie.vote_count,
+                title: movie.title
+            };
+        }
+        return null;
+    } catch (error) {
+        console.error('Error al obtener rating:', error);
+        return null;
+    }
+}
+
+// Función para generar estrellas
+function generateStars(rating) {
+    const fullStars = Math.floor(rating / 2);
+    const hasHalfStar = (rating / 2) % 1 >= 0.5;
+    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+    
+    let starsHTML = '';
+    
+    // Estrellas completas
+    for (let i = 0; i < fullStars; i++) {
+        starsHTML += '<i class="fa fa-star text-warning"></i>';
+    }
+    
+    // Media estrella
+    if (hasHalfStar) {
+        starsHTML += '<i class="fa fa-star-half-alt text-warning"></i>';
+    }
+    
+    // Estrellas vacías
+    for (let i = 0; i < emptyStars; i++) {
+        starsHTML += '<i class="fa fa-star text-muted"></i>';
+    }
+    
+    return starsHTML;
+}
+
+// Función para actualizar el rating en la página
+async function updateMovieRating(movieTitle) {
+    const ratingContainer = document.getElementById('rating-container');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    
+    const movieData = await getMovieRating(movieTitle);
+    
+    if (movieData) {
+        const starsHTML = generateStars(movieData.rating);
+        const formattedVotes = movieData.voteCount.toLocaleString();
+        
+        ratingContainer.innerHTML = `
+            ${starsHTML}
+            <span class="list-inline-item text-light ms-2">
+                Rating ${movieData.rating.toFixed(1)} | ${formattedVotes}+ comentarios
+            </span>
+        `;
+    } else {
+        ratingContainer.innerHTML = `
+            <span class="text-muted">Rating no disponible</span>
+        `;
+    }
+}
+
+// Llamar la función cuando cargue la página
+document.addEventListener('DOMContentLoaded', function() {
+    updateMovieRating('Interstellar');
+});
+</script>
+    <!-- End Script -->
+
+
+    
+    <!-- Start Slider Script -->
+    <script src="assets/js/slick.min.js"></script>
+    <script>
+        $('#carousel-related-product').slick({
+            infinite: true,
+            arrows: false,
+            slidesToShow: 4,
+            slidesToScroll: 3,
+            dots: true,
+            responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 3
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 3
+                    }
+                }
+            ]
+        });
+    </script>
+    <!-- End Slider Script -->
+
+</body>
+
+</html>
