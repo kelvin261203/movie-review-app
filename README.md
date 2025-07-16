@@ -39,7 +39,7 @@ The app is fully responsive and works seamlessly on mobile, tablet, and desktop 
 
 ## Live Demo
 
-> Coming soon (or insert deployed link if available)
+> Coming soon 
 
 ---
 
