@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="./assets/css/carousel-enhanced.css">
+    <!-- <link rel="stylesheet" href="./assets/css/carousel-enhanced.css"> -->
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
@@ -23,12 +23,135 @@
         }
         a.h3.text-decoration-none {
     color: white;
-}
+        }
+
+        span.navbar-toggler-icon{
+            color: white;
+        }
 
 a.nav-link.text-white {
     margin-left: 27px;
     padding: 8px;
 }
+
+.container.py-5 {
+    background-color: black;
+}
+
+/* Efectos hover para imágenes 5x7 */
+img.card-img-top.image-5x7 {
+  cursor: pointer;
+}
+
+img.card-img-top.image-5x7:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.image-5x7 {
+  aspect-ratio: 5 / 7;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card{
+    background-color: black;
+    border: none;
+    color: white;
+}
+body{
+    background-color: #000 !important;
+}
+
+h1.h2.pb-4{
+    color: white !important;
+    text-align: center;
+}
+
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 768px) {
+    .image-5x4 {
+        height: 250px;
+    }
+    
+    .image-5x7 {
+        margin-bottom: 10px;
+    }
+    
+    .carousel-item .col-4 {
+        padding: 0 3px;
+    }
+}
+
+@media (max-width: 576px) {
+    .image-5x4 {
+        height: 200px;
+    }
+}
+
+/* CSS para alinear géneros horizontalmente SOLO en vista móvil */
+
+/* Media query para dispositivos móviles (768px y menor) */
+@media (max-width: 768px) {
+    .templatemo-accordion {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-start;
+    }
+    
+    .templatemo-accordion li {
+        flex: 0 0 auto;
+        padding-bottom: 0 !important; /* Remueve el padding bottom */
+        margin-bottom: 10px;
+    }
+    
+    .templatemo-accordion li a {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #000000;
+        border: 1px solid #dee2e6;
+        border-radius: 20px;
+        white-space: nowrap;
+        transition: all 0.3s ease;
+    }
+    
+    .templatemo-accordion li a:hover {
+        background-color: #e9ecef;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Media query para pantallas muy pequeñas (576px y menor) */
+@media (max-width: 576px) {
+    .templatemo-accordion {
+        gap: 8px;
+    }
+    
+    .templatemo-accordion li a {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Media query para pantallas extra pequeñas (480px y menor) */
+@media (max-width: 480px) {
+    .templatemo-accordion {
+        justify-content: center; /* Centra los elementos en pantallas muy pequeñas */
+    }
+    
+    .templatemo-accordion li a {
+        padding: 5px 10px;
+        font-size: 0.85rem;
+    }
+}
+
     </style>
 </head>
 
@@ -38,10 +161,10 @@ a.nav-link.text-white {
     <nav class="navbar navbar-expand-lg nav-fade">
         <div class="container d-flex justify-content-between align-items-center text-white">
             <a class="navbar-brand text-success logo h1 align-self-center" href="indexx.html">ReviewScope</a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="templatemo_main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">☰</span>
             </button>
-            <div class=" navbar-collapse" id="templatemo_main_nav">
+            <div class="collapse navbar-collapse" id="templatemo_main_nav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link text-white" href="indexx.html">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link text-white" href="shop.html">Películas y Series</a></li>
@@ -51,7 +174,7 @@ a.nav-link.text-white {
             </div>
         </div>
     </nav>
-    </div>
+</div>
 
     <!-- Contenido Principal -->
     <div class="container py-5">
@@ -136,7 +259,7 @@ a.nav-link.text-white {
                     </div>
                     <div class="col-md-4 mb-4">
                         <div class="card">
-                            <img src="assets/img/godfather.jpg" class="card-img-top" alt="El Padrino">
+                            <img src="assets/img/godfather.jpg" class="card-img-top image-5x7" alt="El Padrino">
                             <div class="card-body">
                                 <h5 class="card-title">El Padrino</h5>
                                 <p class="card-text">1972 · Crimen, Drama</p>

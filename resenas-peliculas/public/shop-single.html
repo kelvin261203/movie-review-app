@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/custom.css">
-    <link rel="stylesheet" href="./assets/css/carousel-enhanced.css">
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
@@ -22,6 +21,100 @@
     <link rel="stylesheet" type="text/css" href="assets/css/slick.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
     <style>
+        /* Estilo para las imágenes del carousel con proporción 5x7 */
+.image-5x7 {
+    aspect-ratio: 5/7;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+}
+
+body{
+    background-color: #000 !important;
+}
+
+.card.mb-3 {
+    border: none;
+    background-color: black;
+}
+.card.rounded-0{
+    background-color: #000;
+    border: none;
+    aspect-ratio: 5/7;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+.card.rounded-0:hover{
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Efecto hover para las imágenes del carousel */
+.image-5x7:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Estilo para el iframe de YouTube más grande */
+.image-5x4 {
+    aspect-ratio: 5/4;
+    width: 100%;
+    height: 350px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+/* Contenedor del iframe para mejor presentación */
+.card iframe {
+    border-radius: 22px;
+}
+
+/* Ajustes adicionales para el carousel */
+.carousel-multi-item {
+    overflow: hidden;
+}
+
+.carousel-inner {
+    padding: 10px 10px;
+}
+
+.carousel-item {
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Espaciado entre las imágenes del carousel */
+.carousel-item .col-4 {
+    padding: 3px 5px;
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 768px) {
+    .image-5x4 {
+        height: 250px;
+    }
+    
+    .image-5x7 {
+        margin-bottom: 10px;
+    }
+    
+    .carousel-item .col-4 {
+        padding: 0 3px;
+    }
+}
+
+@media (max-width: 576px) {
+    .image-5x4 {
+        height: 200px;
+    }
+}
         .footer {
             background-color: #000;
             padding: 3rem 0 1rem;
@@ -52,6 +145,16 @@
         .footer-link-list a:hover {
             color: rgb(39, 35, 101);
         }
+        .h2, h2 {
+    font-size: calc(1.325rem + .9vw);
+    color: white !important;
+}
+        li{
+            color: #dcdde1;
+        }
+        span.navbar-toggler-icon{
+            color: white;
+        }
     </style>
 </head>
 
@@ -65,7 +168,7 @@
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon">☰</span>
             </button>
 
             <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
@@ -81,7 +184,7 @@
                             <a class="nav-link text-light" href="contact.html">Comunidad</a>
                         </li>
                         <li class="nav-item text-light">
-                        <a class="nav-link text-white" href="index.html">Mis Reseñas</a>
+                        <a class="nav-link text-light" href="index.html">Mis Reseñas</a>
                     </li>
                     </ul>
                 </div>

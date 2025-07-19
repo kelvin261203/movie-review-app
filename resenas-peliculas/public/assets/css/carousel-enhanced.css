@@ -6,6 +6,7 @@
 body {
   background-color: #000000;
   color: white;
+  overflow-x: hidden; /* Evita scroll horizontal */
 }
 
 /* Fondo negro absoluto */
@@ -18,56 +19,6 @@ body {
   color: white !important;
 }
 
-/* ========================================
-   SECCIÓN HERO
-   ======================================== */
-
-/* Imagen de fondo tipo slide */
-.hero-slide {
-  position: relative;
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-/* Gradiente de desvanecimiento inferior */
-.hero-gradient-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 60%;
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
-  z-index: 1;
-}
-
-/* Contenido encima del fondo y overlay */
-.hero-content {
-  position: absolute;
-  bottom: 10%;
-  left: 5%;
-  z-index: 2;
-  max-width: 700px;
-  color: white;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.8);
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-.hero-content h3 {
-  font-size: 2rem;
-  margin-top: 0.5rem;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  line-height: 1.5;
-}
 
 /* ========================================
    NAVEGACIÓN
@@ -81,24 +32,29 @@ body {
   left: 0;
   width: 100%;
   z-index: 10;
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+/* Navbar fija al hacer scroll */
+.nav-fade.scrolled {
+  background: rgba(0, 0, 0, 0.9) !important;
+  position: fixed;
+  backdrop-filter: blur(10px); /* Efecto moderno */
 }
 
 /* Forzar que los enlaces del nav sean blancos */
 .navbar .nav-link,
 .navbar .fa {
   color: white !important;
+  transition: color 0.3s ease, transform 0.2s ease;
+  padding: 0.5rem 1rem;
 }
 
-/* Fade superior del carousel */
-.carousel-fade-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 150px; /* puedes ajustar la altura */
-  width: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
-  z-index: 5;
-  pointer-events: none; /* para no bloquear interacción */
+/* Efecto hover en navegación */
+.navbar .nav-link:hover,
+.navbar .fa:hover {
+  color: #ccc !important;
+  transform: translateY(-2px);
 }
 
 /* ========================================
@@ -138,20 +94,23 @@ body {
    ======================================== */
 
 .category-img {
-  width: 400px;           /* tamaño fijo */
-  height: 330px;
-  object-fit: cover;      /* recorta para que encaje en el círculo */
-  border: none;           /* elimina borde blanco */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* opcional: sombra elegante */
+  width: 280px !important; /* Tamaño fijo para consistencia */
+  height: 280px !important; /* Altura igual al ancho para círculo perfecto */
+  max-width: none !important; /* Sobrescribe max-width de Bootstrap */
+  min-width: 280px !important; /* Evita que se reduzca */
+  object-fit: cover;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0; /* Evita que se comprima en flex containers */
 }
 
 /* Efectos hover para imágenes de categoría */
-img.category-img.rounded-circle.img-fluid {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.category-img.rounded-circle.img-fluid {
   cursor: pointer;
 }
 
-img.category-img.rounded-circle.img-fluid:hover {
+.category-img.rounded-circle.img-fluid:hover {
   transform: scale(1.1);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
@@ -162,20 +121,31 @@ img.category-img.rounded-circle.img-fluid:hover {
 
 .card {
   background-color: #000;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+/* Efecto hover en tarjetas */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* Uniformiza todas las imágenes de review */
 .review-img {
-  height: 500px;
+  height: clamp(300px, 40vw, 500px); /* Altura responsive */
   width: 100%;
   object-fit: cover;
   border: none;
   border-radius: 0;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 /* Efectos hover para imágenes de review */
 img.card-img-top.review-img {
-  transition: transform 0.3s ease, filter 0.3s ease;
   cursor: pointer;
 }
 
@@ -186,8 +156,8 @@ img.card-img-top.review-img:hover {
 
 /* Estilo del cuerpo de la tarjeta */
 .review-body {
-  background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro con transparencia */
-  padding: 1.2rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: clamp(1rem, 3vw, 1.5rem); /* Padding responsive */
   border-radius: 0 0 10px 10px;
   transition: background-color 0.3s ease;
 }
@@ -200,6 +170,8 @@ img.card-img-top.review-img:hover {
 /* Estilo del título */
 .review-body .h2 {
   color: #fff;
+  font-size: clamp(1.2rem, 3vw, 1.5rem); /* Tamaño responsive */
+  margin-bottom: 0.5rem;
 }
 
 /* Estilo del texto */
@@ -207,14 +179,23 @@ img.card-img-top.review-img:hover {
 .review-body p,
 .review-body .text-muted {
   color: #ffffff !important;
+  font-size: clamp(0.9rem, 2vw, 1rem); /* Tamaño responsive */
+  line-height: 1.5;
 }
 
 /* Estilo del corazón */
 .corazon {
-  background-color: rgb(0, 0, 0) !important; /* fondo negro con transparencia */
+  background-color: rgb(0, 0, 0) !important;
   color: rgb(255, 255, 255) !important;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   border-radius: 0 0 10px 10px;
+  padding: clamp(0.5rem, 2vw, 1rem);
+}
+
+/* Efecto hover en corazón */
+.corazon:hover {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  transform: scale(1.02);
 }
 
 /* Enlace oscuro forzado */
@@ -238,7 +219,8 @@ img.card-img-top.review-img:hover {
   width: 100%;
   height: auto;
   border: none;
-  border-radius: 12px; /* Sin bordes redondeados */
+  border-radius: 12px;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .image-5x4 {
@@ -247,12 +229,12 @@ img.card-img-top.review-img:hover {
   width: 100%;
   height: auto;
   border: none;
-  border-radius: 0; /* Sin bordes redondeados */
+  border-radius: 0;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 /* Efectos hover para imágenes 5x7 */
 img.card-img-top.image-5x7 {
-  transition: transform 0.3s ease, filter 0.3s ease;
   cursor: pointer;
 }
 
@@ -262,25 +244,629 @@ img.card-img-top.image-5x7:hover {
 }
 
 /* ========================================
-   RESPONSIVE
+   RESPONSIVE BREAKPOINTS
    ======================================== */
 
+/* Tablets grandes y laptops pequeñas */
+@media (max-width: 1024px) {
+  .hero-content {
+    bottom: 8%;
+    left: 3%;
+    right: 3%;
+  }
+  
+  .review-img {
+    height: clamp(250px, 35vw, 400px);
+  }
+  
+  .hero-slide {
+    background-attachment: scroll; /* Desactiva parallax en tablets */
+  }
+}
+
+/* Tablets */
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-  
-  .hero-content h3 {
-    font-size: 1.4rem;
-  }
-  
-  .hero-content p {
-    font-size: 1rem;
-  }
-  
   .hero-content {
     bottom: 5%;
     left: 5%;
     right: 5%;
+    text-align: center; /* Centra el contenido en tablets */
+  }
+  
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+  
+  .hero-content h3 {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+  }
+  
+  .hero-content p {
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    max-width: 100%;
+  }
+  
+  .review-img {
+    height: clamp(200px, 40vw, 350px);
+  }
+  
+  .card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .carousel-fade-top {
+    height: clamp(80px, 12vh, 120px);
   }
 }
+
+/* Móviles */
+@media (max-width: 480px) {
+    
+  .review-img {
+    height: clamp(180px, 45vw, 280px);
+  }
+  
+  .review-body {
+    padding: 0.8rem;
+  }
+  
+  .review-body .h2 {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+  }
+  
+  .review-body .card-text,
+  .review-body p {
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
+  }
+  
+  .card {
+    margin-bottom: 1rem;
+  }
+  
+  .carousel-fade-top {
+    height: clamp(60px, 10vh, 100px);
+  }
+  
+  .hero-slide {
+    min-height: 400px;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 320px) {
+  .hero-content {
+    bottom: 15%;
+    padding: 0 5px;
+  }
+  
+  .hero-content h1 {
+    font-size: 1.3rem;
+  }
+  
+  .hero-content h3 {
+    font-size: 1rem;
+  }
+  
+  .hero-content p {
+    font-size: 0.85rem;
+  }
+  
+  .review-img {
+    height: 200px;
+  }
+}
+
+/* ========================================
+   CONTROL DE ELEMENTOS CON CAMBIOS BRUSCOS
+   ======================================== */
+
+/* Clase para elementos que cambian mucho de tamaño */
+.col-12.col-md-3.p-5 {
+  padding: clamp(1rem, 4vw, 3rem) !important; /* Padding responsive */
+  transition: padding 0.3s ease; /* Transición suave */
+}
+
+/* Alternativa: crear clases específicas para mejor control */
+.responsive-col {
+  padding: clamp(1rem, 4vw, 3rem) !important;
+  transition: all 0.3s ease;
+}
+
+/* Padding responsive específico por breakpoint */
+@media (max-width: 576px) {
+  .col-12.col-md-3.p-5 {
+    padding: 1rem !important; /* Padding pequeño en móvil */
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .col-12.col-md-3.p-5 {
+    padding: 1.5rem !important; /* Padding medio en tablet */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .col-12.col-md-3.p-5 {
+    padding: 2rem !important; /* Padding intermedio */
+  }
+}
+
+@media (min-width: 993px) {
+  .col-12.col-md-3.p-5 {
+    padding: 2.5rem !important; /* Padding grande en desktop */
+  }
+}
+
+/* ========================================
+   MEJORAS DE ACCESIBILIDAD Y UX
+   ======================================== */
+
+/* Mejora la legibilidad en pantallas pequeñas */
+@media (max-width: 768px) {
+  .hero-content {
+    text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+  }
+}
+
+/* Transiciones suaves para cambios de orientación */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero-slide {
+    height: 100vh;
+    min-height: 400px;
+  }
+  
+  .hero-content {
+    bottom: 5%;
+  }
+}
+
+/* Optimización para pantallas de alta densidad */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-slide {
+    background-size: cover;
+  }
+}
+
+/* Mejoras para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .card:hover,
+  img.category-img.rounded-circle.img-fluid:hover,
+  img.card-img-top.review-img:hover,
+  img.card-img-top.image-5x7:hover {
+    transform: none; /* Desactiva efectos hover en dispositivos táctiles */
+  }
+  
+  /* Mantiene solo efectos de enfoque para accesibilidad */
+  .card:focus,
+  img.category-img.rounded-circle.img-fluid:focus,
+  img.card-img-top.review-img:focus,
+  img.card-img-top.image-5x7:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+}
+
+/* ========================================
+   CAROUSEL ADAPTATIVO PARA MÓVIL
+   ======================================== */
+
+/* 1. Carousel con altura proporcional para móvil */
+@media (max-width: 768px) {
+  
+  /* Carousel principal - altura proporcional como las imágenes 5x7 */
+  .carousel,
+  .carousel-inner,
+  .carousel-item,
+  .carousel-item.active,
+  .carousel-item.hero-slide,
+  .carousel-item.active.hero-slide {
+    height: 60vh !important; /* Altura proporcional a la pantalla */
+    min-height: 280px !important; /* Altura mínima */
+    max-height: 400px !important; /* Altura máxima */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Hero slide con aspect ratio similar a 5x7 pero más horizontal */
+  .hero-slide,
+  .carousel-item.hero-slide,
+  .carousel-item.active.hero-slide {
+    height: 60vh !important;
+    min-height: 280px !important;
+    max-height: 400px !important;
+    aspect-ratio: 4 / 3 !important; /* Ratio más cuadrado para móvil */
+    background-attachment: scroll !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    border-radius: 0 0 15px 15px !important; /* Bordes redondeados abajo */
+  }
+  
+  /* Forzar que las imágenes se vean correctamente */
+  .carousel-item img,
+  .hero-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+  
+  /* Si usas background-image, asegurar que se vea */
+  .hero-slide[style*="background-image"] {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+}
+
+/* 2. Ajustes para móviles pequeños */
+@media (max-width: 480px) {
+  
+  .carousel,
+  .carousel-inner,
+  .carousel-item,
+  .carousel-item.active,
+  .carousel-item.hero-slide,
+  .carousel-item.active.hero-slide {
+    height: 50vh !important;
+    min-height: 250px !important;
+    max-height: 320px !important;
+  }
+  
+  .hero-slide,
+  .carousel-item.hero-slide,
+  .carousel-item.active.hero-slide {
+    height: 50vh !important;
+    min-height: 250px !important;
+    max-height: 320px !important;
+    aspect-ratio: 5 / 4 !important; /* Ratio más cuadrado */
+    border-radius: 0 0 12px 12px !important;
+  }
+}
+
+/* 3. Móviles muy pequeños */
+@media (max-width: 320px) {
+  
+  .carousel,
+  .carousel-inner,
+  .carousel-item,
+  .carousel-item.active,
+  .carousel-item.hero-slide,
+  .carousel-item.active.hero-slide {
+    height: 45vh !important;
+    min-height: 220px !important;
+    max-height: 280px !important;
+  }
+  
+  .hero-slide,
+  .carousel-item.hero-slide,
+  .carousel-item.active.hero-slide {
+    height: 45vh !important;
+    min-height: 220px !important;
+    max-height: 280px !important;
+    aspect-ratio: 1 / 1 !important; /* Más cuadrado */
+  }
+}
+
+/* ========================================
+   CONTENIDO HERO ADAPTADO AL NUEVO TAMAÑO
+   ======================================== */
+
+@media (max-width: 768px) {
+  
+  /* Ajustar contenido hero al nuevo tamaño */
+  .hero-content {
+    bottom: 8% !important;
+    left: 5% !important;
+    right: 5% !important;
+    padding: 0 15px !important;
+    max-width: 90% !important;
+    text-align: center !important;
+  }
+  
+  .hero-content h1 {
+    font-size: clamp(1.3rem, 5vw, 2rem) !important;
+    margin-bottom: 0.3rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  .hero-content h3 {
+    font-size: clamp(1rem, 4vw, 1.5rem) !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .hero-content p {
+    font-size: clamp(0.8rem, 3vw, 1rem) !important;
+    line-height: 1.3 !important;
+    margin-top: 0.5rem !important;
+  }
+  
+  /* Gradiente más suave para el nuevo tamaño */
+  .hero-gradient-overlay {
+    height: 50% !important;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 70%, #000 100%) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  
+  .hero-content {
+    bottom: 5% !important;
+    padding: 0 10px !important;
+  }
+  
+  .hero-content h1 {
+    font-size: clamp(1.1rem, 6vw, 1.6rem) !important;
+  }
+  
+  .hero-content h3 {
+    font-size: clamp(0.9rem, 4vw, 1.2rem) !important;
+  }
+  
+  .hero-content p {
+    font-size: clamp(0.7rem, 3vw, 0.9rem) !important;
+  }
+}
+
+/* ========================================
+   CONTROLES DEL CAROUSEL ADAPTADOS
+   ======================================== */
+
+@media (max-width: 768px) {
+  
+  /* Controles más visibles */
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 15% !important;
+    opacity: 0.9 !important;
+    background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0)) !important;
+    border-radius: 0 !important;
+  }
+  
+  .carousel-control-next {
+    background: linear-gradient(to left, rgba(0,0,0,0.5), rgba(0,0,0,0)) !important;
+  }
+  
+  /* Iconos más grandes */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 25px !important;
+    height: 25px !important;
+  }
+  
+  /* Indicadores adaptados */
+  .carousel-indicators {
+    bottom: 15px !important;
+    margin-bottom: 0 !important;
+  }
+  
+  .carousel-indicators [data-bs-target] {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    margin: 0 4px !important;
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  }
+  
+  .carousel-indicators .active {
+    background-color: white !important;
+    border-color: white !important;
+  }
+}
+
+/* ========================================
+   NAVEGACIÓN AJUSTADA AL NUEVO TAMAÑO
+   ======================================== */
+
+@media (max-width: 768px) {
+  
+  /* Navegación más compacta */
+  .nav-fade {
+    position: fixed !important;
+    top: 0 !important;
+    z-index: 20 !important;
+    background: transparent !important;
+    backdrop-filter: blur(1px) !important;
+    padding: 0.2rem 0 !important;
+  }
+  
+  /* Fade superior más sutil */
+  .carousel-fade-top {
+    height: 60px !important;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)) !important;
+    z-index: 15 !important;
+  }
+}
+
+/* ========================================
+   ESPACIADO DESPUÉS DEL CAROUSEL
+   ======================================== */
+
+@media (max-width: 768px) {
+  
+  /* Espaciado después del carousel */
+  .carousel + section,
+  .carousel + .container,
+  .carousel + .row {
+    margin-top: 2rem !important;
+  }
+  
+  /* Transición suave entre secciones */
+  .carousel {
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* ========================================
+   ORIENTACIÓN LANDSCAPE EN MÓVILES
+   ======================================== */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  
+  .carousel,
+  .carousel-inner,
+  .carousel-item {
+    height: 85vh !important;
+    max-height: 500px !important;
+  }
+  
+  .hero-slide {
+    height: 85vh !important;
+    max-height: 500px !important;
+    aspect-ratio: 16 / 9 !important; /* Más panorámico en landscape */
+  }
+  
+  .hero-content {
+    bottom: 10% !important;
+    left: 8% !important;
+    right: 8% !important;
+  }
+}
+
+/* ========================================
+   FALLBACKS Y COMPATIBILIDAD
+   ======================================== */
+
+/* Fallback para browsers que no soportan aspect-ratio */
+@supports not (aspect-ratio: 4/3) {
+  @media (max-width: 768px) {
+    .hero-slide {
+      height: 60vh !important;
+      min-height: 280px !important;
+      max-height: 400px !important;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-slide {
+      height: 50vh !important;
+      min-height: 250px !important;
+      max-height: 320px !important;
+    }
+  }
+}
+
+/* Fallback para browsers que no soportan clamp() */
+@supports not (font-size: clamp(1rem, 4vw, 1.5rem)) {
+  @media (max-width: 768px) {
+    .hero-content h1 { font-size: 1.8rem !important; }
+    .hero-content h3 { font-size: 1.3rem !important; }
+    .hero-content p { font-size: 1rem !important; }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-content h1 { font-size: 1.4rem !important; }
+    .hero-content h3 { font-size: 1.1rem !important; }
+    .hero-content p { font-size: 0.9rem !important; }
+  }
+}
+
+/* ========================================
+   DEBUGGING (DESCOMENTA PARA TROUBLESHOOTING)
+   ======================================== */
+
+/* Descomenta estas líneas si las imágenes siguen sin verse */
+
+/* @media (max-width: 768px) {
+  .carousel { border: 3px solid red !important; }
+  .carousel-item { border: 2px solid blue !important; }
+  .hero-slide { border: 1px solid green !important; background: yellow !important; }
+  .hero-slide img { border: 1px solid purple !important; }
+} */
+
+
+/* DEBUGGING EXPANDIDO - Descomenta todo este bloque para diagnóstico completo */
+
+/* @media (max-width: 768px) {
+  .carousel { 
+    border: 3px solid red !important; 
+    background: rgba(255, 0, 0, 0.1) !important;
+  }
+  .carousel-item,
+  .carousel-item.active,
+  .carousel-item.hero-slide,
+  .carousel-item.active.hero-slide { 
+    border: 2px solid blue !important; 
+    background: rgba(0, 0, 255, 0.1) !important;
+  }
+  .carousel-item.active,
+  .carousel-item.active.hero-slide { 
+    border: 2px solid lime !important; 
+    background: rgba(0, 255, 0, 0.1) !important;
+  }
+  .hero-slide,
+  .carousel-item.hero-slide,
+  .carousel-item.active.hero-slide { 
+    border: 1px solid green !important; 
+    background: rgba(255, 255, 0, 0.3) !important;
+    min-height: 200px !important;
+  }
+  .hero-slide img { 
+    border: 2px solid purple !important; 
+    background: rgba(255, 0, 255, 0.3) !important;
+  }
+  .hero-slide[style*="background-image"],
+  .carousel-item.hero-slide[style*="background-image"],
+  .carousel-item.active.hero-slide[style*="background-image"] {
+    background-color: orange !important;
+    background-blend-mode: multiply !important;
+  }
+  .carousel-inner {
+    border: 2px dashed yellow !important;
+    background: rgba(255, 255, 0, 0.1) !important;
+  }
+} */
+
+
+/* DEBUGGING PASO A PASO */
+/* Usa estos uno por uno para identificar el problema específico */
+
+/* PASO 1: Verifica que carousel-item esté visible */
+
+/* @media (max-width: 768px) {
+  .carousel-item { 
+    border: 3px solid blue !important; 
+    background: rgba(0, 0, 255, 0.2) !important;
+    min-height: 200px !important;
+  }
+} */
+
+
+/* PASO 2: Verifica que hero-slide esté visible */
+
+/* @media (max-width: 768px) {
+  .hero-slide { 
+    border: 3px solid green !important; 
+    background: rgba(0, 255, 0, 0.2) !important;
+    min-height: 200px !important;
+  }
+} */
+
+
+/* PASO 3: Verifica las imágenes dentro */
+
+/* @media (max-width: 768px) {
+  .hero-slide img,
+  .carousel-item img { 
+    border: 3px solid purple !important; 
+    background: rgba(255, 0, 255, 0.2) !important;
+    min-height: 200px !important;
+  }
+} */
+
+
+/* PASO 4: Verifica background-images */
+
+/* @media (max-width: 768px) {
+  .hero-slide[style*="background-image"] {
+    background-color: orange !important;
+    background-blend-mode: multiply !important;
+    min-height: 200px !important;
+  }
+} */
